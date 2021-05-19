@@ -31,7 +31,10 @@ This repository contains a minimal .NET Core app. You don't need to worry about 
 
 ### Step 3 - Set up GitHub Actions
 
-1. Create the config file for your continuous integration pipeline. This should be created in .github/workflows and you can name it whatever you like, although it needs to have a .yml extension, e.g. continuous-integration-workflow.yml.
+1. Create the config file for your continuous integration pipeline:
+    - Create a folder calld ".github" at the root of the repository.
+    - Inside there, create a "workflows" folder.
+    - Inside there create a file: you can name it whatever you like, although it needs to have a .yml extension, e.g. continuous-integration-workflow.yml.
 2. Implement a basic workflow:
 ```
 name: Continuous Integration
@@ -53,7 +56,7 @@ See [the GitHub documentation](https://docs.github.com/en/actions/configuring-an
 
 ### Step 4 - Add more actions
 Currently our workflow only checks out the code, which isn't that useful. We want to add some more useful steps to the workflow file. Each step in the workflow file either needs to:
-- Run a command, as in the terminal, for example:
+- Define `run` to run a command as you would in the terminal, for example:
 ```
 name: Continuous Integration
 on: [push]
@@ -69,7 +72,7 @@ jobs:
     - name: Hello world       # Name of step
       run: echo 'Hello world' # Command to run
 ```
-- Use an action. You specify this using the `uses` keyword, followed by the name of the action. The name of the action is of the form `GitHubUsername/RepositoryName`. The action can be one supplied by GitHub, in which case you can find it here: https://github.com/actions. It could also be one created by someone else, in which case you can find them by googling or by browsing https://github.com/marketplace?type=actions. You can also create your own action, or fork an existing action to make changes to it. For example:
+- Define `uses` to specify an action to use. You specify this using the `uses` keyword, followed by the name of the action. The name of the action is of the form `GitHubUsername/RepositoryName`. The action can be one supplied by GitHub, in which case you can find it here: https://github.com/actions. It could also be one created by someone else, in which case you can find them by googling or by browsing https://github.com/marketplace?type=actions. You can also create your own action, or fork an existing action to make changes to it. For example:
 ```
 name: Continuous Integration
 on: [push]
