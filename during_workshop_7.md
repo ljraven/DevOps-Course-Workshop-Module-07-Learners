@@ -56,7 +56,7 @@ See [the GitHub documentation](https://docs.github.com/en/actions/configuring-an
 
 ### Step 4 - Add more actions
 Currently our workflow only checks out the code, which isn't that useful. We want to add some more useful steps to the workflow file. Each step in the workflow file either needs to:
-- Define `run` to run a command as you would in the terminal, for example:
+- Specify `run` to run a command as you would in the terminal, for example:
 ```
 name: Continuous Integration
 on: [push]
@@ -72,7 +72,7 @@ jobs:
     - name: Hello world       # Name of step
       run: echo 'Hello world' # Command to run
 ```
-- Define `uses` to specify an action to use. You specify this using the `uses` keyword, followed by the name of the action. The name of the action is of the form `GitHubUsername/RepositoryName`. The action can be one supplied by GitHub, in which case you can find it here: https://github.com/actions. It could also be one created by someone else, in which case you can find them by googling or by browsing https://github.com/marketplace?type=actions. You can also create your own action, or fork an existing action to make changes to it. For example:
+- Specify `uses`followed by the name of the action. The name of the action is of the form `GitHubUsername/RepositoryName`. The action can be one supplied by GitHub, in which case you can find it here: https://github.com/actions. It could also be one created by someone else, in which case you can find them by googling or by browsing https://github.com/marketplace?type=actions. You can also create your own action, or fork an existing action to make changes to it. For example:
 ```
 name: Continuous Integration
 on: [push]
