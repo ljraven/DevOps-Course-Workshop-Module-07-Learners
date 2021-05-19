@@ -10,10 +10,39 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x' # SDK Version to use; x will use the latest version of the 3.1 channel
+
     - name: Hello world
       uses: actions/hello-world-javascript-action@v1.1 # Name of the action. This uses https://github.com/actions/hello-world-javascript-action
       with:                                            # This section is needed if you need to pass arguments to the action
         who-to-greet: 'Mona the Octocat'
+
+    - name: runs the dotnet build    
     - run: dotnet build
+
+    - name: runs dotnet tests
     - run: dotnet test 
-      name: runs the c# tests
+
+    - name: runs the c# tests
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: typescript install
+    - run: npm install
+      working directory: ./DotnetTemplate.Web
+
+    - name: build
+    - run: npm run build
+      working directory: ./DotnetTemplate.Web
+
+    - name: runs the linter on the typescript code
+    - run: npm run lint
+      working directory: ./DotnetTemplate.Web 
+
+    - name: runs the test
+    - run: npm run test
+      working directory: ./DotnetTemplate.Web
+
+    
+
+    
