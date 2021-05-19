@@ -15,9 +15,12 @@ pipeline {
                 echo 'Building Frontend..'
             }
         }
-        stage('Test') {
+        stage('Testing Backend') {
+            agent{docker{image 'mcr.microsoft.com/dotnet/sdk:5.0'}}
             steps {
-                echo 'Testing..'
+                sh 'dotnet build'
+                sh 'dotnet test'
+                echo 'Testing Backend'
             }
         }
         stage('Deploy') {
