@@ -29,19 +29,19 @@ jobs:
 
     - name: typescript install
       run: npm install
-      working directory: ./DotnetTemplate.Web
+      working-directory: ./DotnetTemplate.Web
 
     - name: build
       run: npm run build
-      working directory: ./DotnetTemplate.Web
+      working-directory: ./DotnetTemplate.Web
 
     - name: runs the linter on the typescript code
       run: npm run lint
-      working directory: ./DotnetTemplate.Web 
+      working-directory: ./DotnetTemplate.Web 
 
     - name: runs the test
       run: npm run test
-      working directory: ./DotnetTemplate.Web
+      working-directory: ./DotnetTemplate.Web
 
     
 
