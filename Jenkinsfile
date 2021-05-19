@@ -25,9 +25,10 @@ pipeline {
                 echo 'Testing Backend'
             }
         }
-        stage('Deploy') {
+        stage('Slack Notification') {
             steps {
-                echo 'Deploying....'
+                slackSend color: "good", message: "Message from Jenkins Pipeline" 
+                echo 'Notifications...'
             }
         }
     }
